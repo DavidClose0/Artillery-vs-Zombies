@@ -20,6 +20,7 @@ public class Explosion : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Zombie"))
         {
+            GameManager.instance.score++;
             Destroy(other.gameObject);
         }
     }

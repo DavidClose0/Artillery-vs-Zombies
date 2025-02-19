@@ -7,7 +7,6 @@ public class Shell : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Shell collided.");
         if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Zombie"))
         {
             Explode();

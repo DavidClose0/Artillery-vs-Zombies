@@ -53,12 +53,9 @@ public class Kinematic : MonoBehaviour
         {
             foreach (Collider otherCollider in externalColliders)
             {
-                if (this.gameObject.tag == "Player" && otherCollider.gameObject.tag == "Bird")
+                if (this.gameObject.tag == "Zombie" && otherCollider.gameObject.tag == "Player")
                 {
-                    Destroy(otherCollider.gameObject);
-                    Vector3 currentScale = transform.localScale;
-                    transform.localScale = new Vector3(currentScale.x + playerScaleIncrease, currentScale.y + playerScaleIncrease, currentScale.z + playerScaleIncrease);
-                    continue; // Skip collision resolution for this specific collider after handling Player-Bird collision
+                    GameManager.instance.EndGame();
                 }
 
                 Vector3 closestPoint = otherCollider.ClosestPoint(transform.position);

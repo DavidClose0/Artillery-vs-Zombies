@@ -19,12 +19,15 @@ public class Mortar : MonoBehaviour
 
     void Update()
     {
-        timer += Time.deltaTime;
-
-        if (Input.GetKeyDown(KeyCode.Space) && timer >= fireCooldown)
+        if (!GameManager.instance.gameHasEnded)
         {
-            Fire();
-            timer = 0;
+            timer += Time.deltaTime;
+
+            if (Input.GetKeyDown(KeyCode.Space) && timer >= fireCooldown)
+            {
+                Fire();
+                timer = 0;
+            }
         }
     }
 
